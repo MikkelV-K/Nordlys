@@ -44,18 +44,18 @@ def rk4_step(t, state, dt):
 
 # --- 3. Simulation Parameters ---
 # Initial Position: 4 Earth Radii out on the negative X-axis
-pos_0 = np.array([-4.0 * R_E, 0.0, 0.0]) 
+pos_0 = np.array([-10.0 * R_E, 0.0, 0.0]) 
 
 # Initial Velocity: angled to create a spiral
 v_mag = 1000000 
-v_dir = np.array([1.0, 0.5, 0.2]) # Add a slight Z-component to see vertical motion
+v_dir = np.array([1.0, 0, 0]) 
 v_dir = v_dir / np.linalg.norm(v_dir)
 vel_0 = v_mag * v_dir
 
 state = np.concatenate([pos_0, vel_0])
 
 dt = 0.001      # Time step
-t_max = 120    # Increased time slightly to see more motion
+t_max = 300    # Increased time slightly to see more motion
 steps = int(t_max / dt)
 
 history = np.zeros((steps, 6))
